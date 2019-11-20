@@ -4,7 +4,6 @@ class LoginScreen extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-
     return LoginScreenState();
   }
 }
