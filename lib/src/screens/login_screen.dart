@@ -29,10 +29,9 @@ class LoginScreenState extends State<LoginScreen> {
       )
     );
   }
-}
 
-Widget emailField() {
-  return TextFormField(
+  Widget emailField() {
+    return TextFormField(
     decoration: InputDecoration(
       labelText: "Email address",
       hintText: 'you@address.com'
@@ -55,10 +54,13 @@ Widget passwordField() {
 Widget submitButton(){
   return RaisedButton(
     onPressed: () {
-
+      formKey.currentState.reset();
+      print("State reset");
     },
     child: Text('Login'),
     color: Colors.blue,
   );
 
 }
+}
+
