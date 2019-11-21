@@ -42,6 +42,9 @@ class LoginScreenState extends State<LoginScreen> {
         return 'Please enter a valid email';
       }       
     },
+    onSaved: (String value) {
+      print(value);
+    },
   );
 } 
 
@@ -57,6 +60,9 @@ Widget passwordField() {
         return 'Please enter a longer password';
       }       
     },
+    onSaved: (String value) {
+      print(value);
+    },
   );
 
 }
@@ -64,7 +70,9 @@ Widget passwordField() {
 Widget submitButton(){
   return RaisedButton(
     onPressed: () {
-      formKey.currentState.validate();
+      if (formKey.currentState.validate()) {
+        formKey.currentState.save();
+      }
       // print("State reset");
     },
     child: Text('Login'),
