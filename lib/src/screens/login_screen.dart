@@ -10,6 +10,8 @@ class LoginScreen extends StatefulWidget {
 
 class LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey <FormState>();
+  String email = '';
+  String password = '';
 
   Widget build(context) {
     return Container(
@@ -44,6 +46,7 @@ class LoginScreenState extends State<LoginScreen> {
     },
     onSaved: (String value) {
       print(value);
+      email = value;
     },
   );
 } 
@@ -62,6 +65,7 @@ Widget passwordField() {
     },
     onSaved: (String value) {
       print(value);
+      password = value;
     },
   );
 
@@ -72,6 +76,7 @@ Widget submitButton(){
     onPressed: () {
       if (formKey.currentState.validate()) {
         formKey.currentState.save();
+        print("Username:$email Password:$password");
       }
       // print("State reset");
     },
