@@ -37,6 +37,11 @@ class LoginScreenState extends State<LoginScreen> {
       hintText: 'you@address.com'
     ),
     keyboardType: TextInputType.emailAddress,
+    validator: (String value) {
+      if (!value.contains('@')) {
+        return 'Please enter a valid email';
+      }       
+    },
   );
 } 
 
@@ -47,6 +52,11 @@ Widget passwordField() {
       
     ),
     obscureText: true,
+    validator: (String value) {
+      if (value.length < 4) {
+        return 'Please enter a longer password';
+      }       
+    },
   );
 
 }
@@ -54,8 +64,8 @@ Widget passwordField() {
 Widget submitButton(){
   return RaisedButton(
     onPressed: () {
-      formKey.currentState.reset();
-      print("State reset");
+      formKey.currentState.validate();
+      // print("State reset");
     },
     child: Text('Login'),
     color: Colors.blue,
